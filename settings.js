@@ -1,36 +1,34 @@
-//base by Tech-God
+//base by hunter
 //re-upload? recode? copy code? give credit ya :)
 //YouTube: @techgod143
-//Instagram: techgod143
-//Telegram: t.me/techgod143
-//GitHub: @techgod143
-//WhatsApp: +917466008456
+//Instagram: driller254_
+//Telegram: t.me/Admin
+//GitHub: @NIMO20042
+//WhatsApp: +254722695736
 //want more free bot scripts? subscribe to my youtube channel: https://youtube.com/@techgod143
 const fs = require('fs')
 const chalk = require('chalk')
 
 //contact details
-global.ownernomer = "910000000000"
-SESSION_ID: process.env.SESSION_ID || 'eyJub2lzZUtleSI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoicUxvMjBSOTNKY2ZMYlNqUC9UTkxhZXNZa2lqOTlBbHVCUnh2Z0g4NFYwRT0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiZ1dMU211NHltaU41eVFtQkc4THZ0ZDhPYVdrd0E0SEtSZGlNTjcwMCtVQT0ifX0sInBhaXJpbmdFcGhlbWVyYWxLZXlQYWlyIjp7InByaXZhdGUiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJ1TVBOWVZFSGdyd2d6bWJsSGVyNTh6OWpRWE1zOXNOUUhaWUxQRGNQejFBPSJ9LCJwdWJsaWMiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJEcG9jYzJtbEQ2UW5tNW5ZS2ZsaEhXOEhEd3JydlJ5dm9PYnU5TDRvcmt3PSJ9fSwic2lnbmVkSWRlbnRpdHlLZXkiOnsicHJpdmF0ZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IitGRTZmeDZyT3dXNjQ4b2tObC9MV29CZWNEdzVtSmtncW1lWmxleVE3VVk9In0sInB1YmxpYyI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IkpaRFQ0TlVSckNZWlkxTFpMUGtHYTNvR1I5eGc5WXVLd2NjbHRoOVJBd0k9In19LCJzaWduZWRQcmVLZXkiOnsia2V5UGFpciI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiNE9ramZ1VFVyamVMemFsMDlkd3dsaUNQaExhNXp1V2pzRHFDcEdhSk5VMD0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiTy9iQkF4TStuQTQ3c3R2QkRBWU5DOGRKbHIvbjBOcVQzd1k1TkYvZHZrZz0ifX0sInNpZ25hdHVyZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6ImdHU1daaGlnN0lHKzJ5ZWx0c0p1M2c0R20yZ2xiNkhYUFNkMHRzQk5wRVNja1V0U2N0MFBnVFNHNHlhK2l0bUl4ZjVxZGhrbXdCd1FDRTU4M3BUbml3PT0ifSwia2V5SWQiOjF9LCJyZWdpc3RyYXRpb25JZCI6MjM3LCJhZHZTZWNyZXRLZXkiOiJ6N0NiUmoyclhYQk53LzY5SWU3TkFYb0VsSCsvc3dBUGlwZms2Tnhwb09nPSIsInByb2Nlc3NlZEhpc3RvcnlNZXNzYWdlcyI6W10sIm5leHRQcmVLZXlJZCI6MzEsImZpcnN0VW51cGxvYWRlZFByZUtleUlkIjozMSwiYWNjb3VudFN5bmNDb3VudGVyIjowLCJhY2NvdW50U2V0dGluZ3MiOnsidW5hcmNoaXZlQ2hhdHMiOmZhbHNlfSwiZGV2aWNlSWQiOiJReHZJVmRiU1NYeXkwSU9GejEycGZnIiwicGhvbmVJZCI6IjFmNjgzOTk1LWIwZDAtNDQxZC1hMTliLTc0NTNmZmU4YjllNSIsImlkZW50aXR5SWQiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJ0UWlMaVdVWU5GZFJkMkluWTlyeGI4RnQxdEU9In0sInJlZ2lzdGVyZWQiOnRydWUsImJhY2t1cFRva2VuIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiOXA4Qk1ldUZLcGhoeXVZZjgvdnV0SDhHK0lzPSJ9LCJyZWdpc3RyYXRpb24iOnt9LCJwYWlyaW5nQ29kZSI6IlY1MkUzTjVKIiwibWUiOnsiaWQiOiIyNTQ3MjI2OTU3MzY6NjRAcy53aGF0c2FwcC5uZXQiLCJuYW1lIjoiaHVudGVyIn0sImFjY291bnQiOnsiZGV0YWlscyI6IkNMYkUrOWdGRUl6eXlyVUdHQTRnQUNnQSIsImFjY291bnRTaWduYXR1cmVLZXkiOiJ3YSttMnNFWngvMFcydXRkYlFNZ2pwZ25xU2VVYVpoZ0poT3RHbllWazJrPSIsImFjY291bnRTaWduYXR1cmUiOiJVTUw1WnZFL01qM0tVeVVPbFNGd09aODNDQjAvQTRGUGVQSmMzRlliSVZ0VXNZNzVzMUVPYzBZVlRSb2I3OVRBVlZHYW5QOUxFblBQSlg4TEJQMVBBZz09IiwiZGV2aWNlU2lnbmF0dXJlIjoiQ29WeThCQ0sxSUhzTWFra25oS0FMRTBuaUxEMWFrWlB2VjcyWW5RTCtINFpuNDVpZzVuZ2Z1dkE3dFRtWlBSVmxhcUszUEZBZWR0S0Y2OXgrUk5nakE9PSJ9LCJzaWduYWxJZGVudGl0aWVzIjpbeyJpZGVudGlmaWVyIjp7Im5hbWUiOiIyNTQ3MjI2OTU3MzY6NjRAcy53aGF0c2FwcC5uZXQiLCJkZXZpY2VJZCI6MH0sImlkZW50aWZpZXJLZXkiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJCY0d2cHRyQkdjZjlGdHJyWFcwRElJNllKNmtubEdtWVlDWVRyUnAyRlpOcCJ9fV0sInBsYXRmb3JtIjoic21iYSIsImxhc3RBY2NvdW50U3luY1RpbWVzdGFtcCI6MTcyMjk4ODgyNSwibXlBcHBTdGF0ZUtleUlkIjoiQUFBQUFNMkYifQ==' ,
-global.ownername = "🐛Tech God"
+global.ownernomer = "254722695736"
 global.ytname = "YT: Tech-God"
-global.socialm = "GitHub: techgod143"
-global.location = "India, Up, Rampur"
+global.socialm = "GitHub: NIMO20042"
+global.location = "africa,nairobi"
 
-global.ownernumber = '917466008456'  //creator number
-global.ownername = '🐛Tech god' //owner name
-global.botname = 'Tech God ᵇᵘᵍ ᵇᵒᵗ' //name of the bot
+global.ownernumber = '254722695736'  //creator number
+global.ownername = '🐛hunter' //owner name
+global.botname = 'Hunter-bug-bot' //name of the bot
 
 //sticker details
 global.packname = 'Sticker By'
-global.author = 'Tech-God\n\nContact: +917466008456'
+global.author = 'hunter\n\nContact: +254722695736'
 
 //console view/theme
 global.themeemoji = '🪀'
 global.wm = "Youtube Tech God."
 
 //theme link
-global.link = 'https://whatsapp.com/channel/0029Va9Ufzi8kyyEnEHvOm1h'
+global.link = 'https://whatsapp.com/channel/0029VafgnsZ60eBkSYLODd1D'
 
 //custom prefix
 global.prefa = ['','!','.','#','&']
