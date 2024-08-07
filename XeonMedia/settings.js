@@ -2,34 +2,34 @@
 //re-upload? recode? copy code? give credit ya :)
 //YouTube: @techgod143
 //Instagram: techgod143
-//Telegram: t.me/techgod143
-//GitHub: @techgod143
-//WhatsApp: +917466008456
+//Telegram: t.me/Admin
+//GitHub: @NIMO20042
+//WhatsApp: +254722695736
 //want more free bot scripts? subscribe to my youtube channel: https://youtube.com/@techgod143
 const fs = require('fs')
 const chalk = require('chalk')
 
 //contact details
-global.ownernomer = "910000000000"
-global.ownername = "🐛Tech God"
+global.ownernomer = "254722695736"
+global.ownername = "🐛hunter"
 global.ytname = "YT: Tech-God"
-global.socialm = "GitHub: techgod143"
-global.location = "India, Up, Rampur"
+global.socialm = "GitHub: NIMO20042"
+global.location = "africa,nairobi"
 
-global.ownernumber = '917466008456'  //creator number
-global.ownername = '🐛Tech god' //owner name
-global.botname = 'Tech God ᵇᵘᵍ ᵇᵒᵗ' //name of the bot
+global.ownernumber = '254722695736'  //creator number
+global.ownername = '🐛hunter' //owner name
+global.botname = 'Hunter-Bug-Bot' //name of the bot
 
 //sticker details
 global.packname = 'Sticker By'
-global.author = 'Tech-God\n\nContact: +917466008456'
+global.author = 'HUNTER\n\nContact: +254722695736'
 
 //console view/theme
 global.themeemoji = '🪀'
 global.wm = "Youtube Tech God."
 
 //theme link
-global.link = 'https://whatsapp.com/channel/0029Va9Ufzi8kyyEnEHvOm1h'
+global.link = 'https://whatsapp.com/channel/0029VafgnsZ60eBkSYLODd1D'
 
 //custom prefix
 global.prefa = ['','!','.','#','&']
